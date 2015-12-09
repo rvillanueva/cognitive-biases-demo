@@ -3,11 +3,27 @@
 angular.module('biasesApp')
   .controller('ResultsCtrl', function($scope, $http, socket) {
 
-    $scope.recording = false;
+    $scope.type;
     $scope.query = {
       start: null,
       end: null
     };
+    $scope.recording;
+    $scope.viewing;
+
+    $scope.init = function(){
+      $scope.recording = false;
+      $scope.query = {
+        start: null,
+        end: null
+      };
+      $scope.type = 'Your'
+      $scope.recording = false;
+      $scope.viewing = false;
+    }
+
+    $scope.init();
+
 
     $scope.start = function() {
       $scope.recording = true;
@@ -29,16 +45,22 @@ angular.module('biasesApp')
       $scope.view();
     }
 
-    $scope.view = function() {
-      $scope.viewing = true;
-      $http({
+    $scope.view = function(type) {
+      var query = {
         url: '/api/anchors',
         method: "GET",
         params: {
           start: $scope.query.start,
           end: $scope.query.end
         }
-      }).success(function(entries) {
+      }
+      if(type == 'all'){
+        delete query.params.start;
+        delete query.params.end;
+        $scope.type = 'All'
+      }
+      $scope.viewing = true;
+      $http(query).success(function(entries) {
         console.log(entries);
         var points = [];
         angular.forEach(entries, function(entry, index){
@@ -66,32 +88,12 @@ angular.module('biasesApp')
     var options = {
       datasetStroke: false,
       scaleLineColor: "rgba(255,255,255,1)",
+      scaleFontColor: "#FFF",
     }
       new Chart(ctx).Scatter(data, options);
     }
 
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
-    });
-
-    $scope.addThing = function() {
-      if ($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', {
-        name: $scope.newThing
-      });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-
-    $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('thing');
-    });
+    $scope.reset = function(){
+      $scope.init();
+    }
   });

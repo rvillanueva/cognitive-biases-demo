@@ -1,24 +1,28 @@
-<div class="container container-padded centered">
-<div id='step-0' ng-show="step == 0">
-  Click to generate a number between {{range.low}} and {{range.high}}.
-  <br><br>
-  <button class="button" ng-click="chooseAnchor();">Generate</button>
-</div>
-<div id='step-1' ng-show="step==1">
-  <h2>{{guess.anchor}}</h2>
-  Do you think the number of countries in the United Nations is higher or lower than {{guess.anchor}}?
-  <br><br>
-  <button class="button" ng-click="chooseDirection('low');">Lower</button>
-  <button class="button" ng-click="chooseDirection('high');">Higher</button>
-</div>
-<div id="step-2" ng-show="step==2">
-  How many countries do you think there are in the United Nations?
-  <br><br>
-  <input class="input-styled" ng-model="guess.choice" maxchars="3" type="number">
-  <br><br>
-  <button class="button" ng-click="submit();">Submit</button>
-</div>
-<div id="step-3" ng-show="step==3">
-  Thank you for your response!
-</div>
+<div class="container container-middled centered">
+    <div id='step-0' ng-show="step == 0">
+      Click to generate a number between {{range.low}} and {{range.high}}.
+      <br>
+      <br>
+      <button class="button" ng-click="chooseAnchor();">Generate</button>
+    </div>
+    <div id='step-1' ng-show="step==1">
+      <h2>{{guess.anchor}}</h2>
+      Do you think the number of countries in the United Nations is higher or lower than {{guess.anchor}}?
+      <br>
+      <br>
+      <button class="button" ng-click="chooseDirection('low');">Lower</button>
+      <button class="button" ng-click="chooseDirection('high');">Higher</button>
+    </div>
+    <div id="step-2" ng-show="step==2">
+      How many countries do you think there are in the United Nations?
+      <br>
+      <br>
+      <input class="input-styled" ng-model="guess.choice" maxchars="3" type="number">
+      <br>
+      <br>
+      <button class="button" ng-click="submit();">Submit</button>
+    </div>
+    <div id="step-3" ng-show="step==3">
+      Thank you for your response!
+    </div>
 </div>

@@ -14,10 +14,17 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Helvetica Neue Light';
   background-color: #001934;
   color: #FFFFFF;
+  padding: 0 !important;
+  margin:0 !important;
+  height: 100%;
 }
 
 .browsehappy {
@@ -27,8 +34,15 @@ body {
     padding: 0.2em 0;
 }
 
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: scroll;
+}
+
 .container-padded {
-  padding-top: 20px;
+  padding-top: 100px;
 }
 
 .centered {
@@ -45,6 +59,16 @@ body {
   background: transparent;
 }
 
+.button:active,.button:hover{
+  color: #001934;
+  background-color: #FFF;
+  cursor: pointer;
+}
+
+.button.button-full {
+  width: 100%;
+}
+
 .input-styled {
   font-size: 1.2em;
   text-align: center;
@@ -54,6 +78,43 @@ body {
   border-color: #FFF;
   color: #FFF;
   background: transparent;
+}
+
+.v-middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container-middled {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blocked {
+  display: inline-block;
+}
+
+.big-screen {
+  font-size: 30px;
+}
+
+a {
+  color: #FFF;
+}
+
+.righted {
+  text-align: right;
+}
+
+.lefted {
+  text-align: left;
+}
+
+.container-centered {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 // Component styles are injected through grunt

@@ -1,19 +1,55 @@
-<div class="container container-padded centered">
-  <div ng-if="!recording && !viewing">
-    <button class="button" ng-click="start();">Start Recording</button>
+<div class="container big-screen background-full">
+  <div class="col-left centered" ng-if="!viewing" height="100%">
+    <br>
+    <br>
+    <br>
+    <br> Participants, go to
+    <br><a href="http://thinkfast.mybluemix.net/">thinkfast.mybluemix.net</a>
     <br><br>
-    <button class="button" ng-click="view();">View Results</button>
-    <br><br>
-    <a href="/edit"><button class="button">Edit</button></a>
+    <qrcode data="http://thinkfast.mybluemix.net/" ng-show="!viewing" size="200"></qrcode>
   </div>
-  <div ng-if="recording">
-    <button class="button" ng-click="end();">End Recording</button>
+  <div class="col-right centered" ng-if="!viewing">
+    <br>
+    <br>
+    <br>
+    <h2>Facilitator</h2>
+    <div class="blocked">
+      <div ng-if="!recording && !viewing">
+        <button class="button button-full" ng-click="start();">Start Recording</button>
+        <br>
+        <br>
+        <button class="button button-full" ng-click="view('all');">View Results</button>
+        <br>
+        <br>
+        <a href="/edit">
+          <button class="button button-full">Edit</button>
+        </a>
+      </div>
+      <div ng-if="recording">
+        <button class="button button-full" ng-click="end();">End Recording</button>
+      </div>
+    </div>
   </div>
-  <div ng-show="viewing && !recording">
-    Guess
-    <div class="row">
-      <canvas id="myChart" width="800px" height="400px"></canvas>
-      Anchor
+  <div class="centered">
+    <div ng-if="viewing && !recording" class="blocked container-centered">
+      <br>
+      <br>
+      <br>
+      <h3 class="centered">{{type}} Guesses</h3>
+      <div class="lefted">
+        Guess
+      </div>
+      <div>
+        <canvas id="myChart" width="800px" height="400px"></canvas>
+      </div>
+      <div class="righted">
+        Anchor
+      </div>
+      <div class="centered">
+        <button class="button" ng-click="view('all');">View All</button>
+        &nbsp;&nbsp;
+          <button class="button" ng-click="init();">Reset</button>
+      </div>
     </div>
   </div>
 </div>

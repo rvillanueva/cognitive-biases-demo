@@ -30,8 +30,32 @@
 }
 
 .background-full {
-  background-image: url('');
+  background-image: url('/assets/images/background-anchor.jpg');
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;
+}
+
+.col-left {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  width: 50%;
+  top: 0;
+
+}
+
+.col-right {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  width: 50%;
+  top: 0;
+}
+
+.col {
+  display: inline-block;
+}
+
+.tall{
+height: 100%;  
 }
