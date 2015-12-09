@@ -1,0 +1,67 @@
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@font-face {
+    font-family: 'Helvetica Neue Light';
+    src: url('../assets/fonts/HelvNeueLightforIBM.otf')
+}
+
+@font-face {
+    font-family: 'Helvetica Neue Bold';
+    src: url('../assets/fonts/HelvNeueBoldforIBM.otf')
+}
+
+/**
+ * App-wide Styles
+ */
+
+body {
+  font-family: 'Helvetica Neue Light';
+  background-color: #001934;
+  color: #FFFFFF;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.container-padded {
+  padding-top: 20px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.button {
+  font-size: 1.2em;
+  padding: 1em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FFF;
+  color: #FFF;
+  background: transparent;
+}
+
+.input-styled {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 1em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FFF;
+  color: #FFF;
+  background: transparent;
+}
+
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'routes/edit/edit.scss';
+@import 'routes/main/main.scss';
+@import 'routes/results/results.scss';
+@import 'modal/modal.scss';
+// endinjector

@@ -1,0 +1,19 @@
+<div class="container container-padded centered">
+  <div ng-if="!recording && !viewing">
+    <button class="button" ng-click="start();">Start Recording</button>
+    <br><br>
+    <button class="button" ng-click="view();">View Results</button>
+    <br><br>
+    <a href="/edit"><button class="button">Edit</button></a>
+  </div>
+  <div ng-if="recording">
+    <button class="button" ng-click="end();">End Recording</button>
+  </div>
+  <div ng-show="viewing && !recording">
+    Guess
+    <div class="row">
+      <canvas id="myChart" width="800px" height="400px"></canvas>
+      Anchor
+    </div>
+  </div>
+</div>

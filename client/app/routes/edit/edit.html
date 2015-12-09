@@ -1,0 +1,24 @@
+<div ng-include="'components/navbar/navbar.html'" ng-controller="NavbarCtrl"></div>
+<div class="container">
+  <h1>Edit</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <td>Submitted</td>
+          <td>Anchor #</td>
+          <td>Direction</td>
+          <td>Choice</td>
+          <td ng-if="isAdmin()"></td>
+        </thead>
+        <tr ng-repeat="point in points">
+          <td>{{point.submitted}}</td>
+          <td>{{point.anchor}}</td>
+          <td>{{point.direction}}</td>
+          <td ng-if="isAdmin()">{{point.choice}}</td>
+          <td><a href="#" ng-click="delete(point._id)">Delete?</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

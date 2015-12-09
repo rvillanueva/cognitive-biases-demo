@@ -1,0 +1,7 @@
+applications:
+- services:
+  - MongoLab-8z
+  name: compass-dev
+  command: node server/app.js
+  path: .
+  memory: 528M
