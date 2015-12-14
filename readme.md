@@ -1,4 +1,4 @@
-# Compass
+# Cognitive Biases
 > A demonstration of common cognitive biases such as anchoring and base rate neglect
 
 ## Dependencies
